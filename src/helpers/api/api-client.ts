@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import curlirize from 'axios-curlirize'
 
-export interface ApiClientConfig {
+interface ApiClientConfig {
     baseURL: string
     headers?: Record<string, string>
     timeout?: number
@@ -22,7 +22,7 @@ export class ApiClient {
 
     constructor(config: ApiClientConfig) {
         this.enableCurlLogging = config.enableCurlLogging ?? false
-        
+
         this.client = axios.create({
             baseURL: config.baseURL,
             headers: config.headers || {},
@@ -48,7 +48,7 @@ export class ApiClient {
 
     async request<T = any>(config: AxiosRequestConfig): Promise<ApiResponse<T>> {
         const response: AxiosResponse<T> = await this.client.request(config)
-        
+
         return {
             status: response.status,
             statusText: response.statusText,

@@ -4,8 +4,8 @@
   "scripts": {
     "devices": "xcrun simctl list | egrep Booted",
     "knip": "npx knip --include=files --include exports,nsExports,types,nsTypes,enumMembers,duplicates",
-    "lint": "npx eslint -c .eslintrc.json 'src/**/*.ts'",
-    "lint:fix": "npx eslint -c .eslintrc.json 'src/**/*.ts' --fix",
+    "lint": "npx eslint 'src/**/*.ts'",
+    "lint:fix": "npx eslint 'src/**/*.ts' --fix",
     "prepare": "husky",
     "prettier:check": "prettier --config .prettierrc 'src/**/*.ts' --check --list-different",
     "prettier:write": "prettier --config .prettierrc 'src/**/*.ts' --write --list-different",
@@ -14,7 +14,7 @@
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "npm run prettier:write",
-      "npx eslint -c .eslintrc.json"
+      "npx eslint"
     ],
     "package.json": [
       "npx sort-package-json"

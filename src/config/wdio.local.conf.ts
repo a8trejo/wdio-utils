@@ -60,7 +60,7 @@ const getSpecsToRun = (): string[] | undefined => {
     if (!testSpecs || testSpecs.trim() === '') {
         return undefined
     }
-    
+
     // Split by comma and map to full paths relative to config file location
     return testSpecs
         .split(',')
@@ -85,7 +85,7 @@ const localConfig = {
     // ------------------------------------------------------------------------------------------------------------------------------
     capabilities: [baseCapabilities],
     // ------------------------------------------------------------------------------------------------------------------------------
-    
+
     // If TEST_SPECS is defined, use it. Otherwise, use base config specs.
     // Base config specs are removed before merge to prevent array concatenation.
     specs: specsToRun || wdioConfig.specs,

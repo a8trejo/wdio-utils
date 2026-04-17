@@ -1,8 +1,6 @@
 class HomeTestPage {
     get homeHeader() {
-        const selector = driver.isIOS
-            ? '~Hello, world!'
-            : '//android.widget.Button[@content-desc="Hello, world!"]'
+        const selector = driver.isIOS ? '~Hello, world!' : '//android.widget.Button[@content-desc="Hello, world!"]'
         return $(selector)
     }
 }

@@ -16,7 +16,7 @@ export default {
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
     tsConfigPath: './tsconfig.json',
-    
+
     port: 4723,
     //
     // ==================
@@ -33,9 +33,7 @@ export default {
     // The path of the spec files will be resolved relative from the directory of
     // of the config file unless it's absolute.
     //
-    specs: [
-        '../specs/**/*.ts'
-    ],
+    specs: ['../specs/**/*.ts'],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -145,7 +143,7 @@ export default {
             'json',
             {
                 outputDir: './results',
-                outputFileFormat: (opts : any) => {
+                outputFileFormat: (opts: any) => {
                     return `test-wdio-${opts.cid}.json`
                 },
             },
@@ -225,7 +223,7 @@ export default {
     before: async function (capabilities: any, specs: any) {
         // Import custom mobile commands
         await import('../commands/mobile.commands.js')
-        
+
         // Initialize chai after browser is ready
         try {
             // Import chai using require
@@ -293,22 +291,22 @@ export default {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {string} oldSessionId session ID of the old session
-    * @param {string} newSessionId session ID of the new session
-    */
+     * Gets executed when a refresh happens.
+     * @param {string} oldSessionId session ID of the old session
+     * @param {string} newSessionId session ID of the new session
+     */
     // onReload: function(oldSessionId, newSessionId) {
     // }
     /**
-    * Hook that gets executed before a WebdriverIO assertion happens.
-    * @param {object} params information about the assertion to be executed
-    */
+     * Hook that gets executed before a WebdriverIO assertion happens.
+     * @param {object} params information about the assertion to be executed
+     */
     // beforeAssertion: function(params) {
     // }
     /**
-    * Hook that gets executed after a WebdriverIO assertion happened.
-    * @param {object} params information about the assertion that was executed, including its results
-    */
+     * Hook that gets executed after a WebdriverIO assertion happened.
+     * @param {object} params information about the assertion that was executed, including its results
+     */
     // afterAssertion: function(params) {
     // }
 }

@@ -2,7 +2,6 @@ import { ApiClient, ApiResponse } from './api-client.js'
 
 export enum ApiLogLevel {
     NONE = 0,
-    BASIC = 1,
     DETAILED = 2,
 }
 
@@ -50,9 +49,9 @@ class GithubApi {
         this.client = new ApiClient({
             baseURL: this.GITHUB_API_BASE_URL,
             headers: {
-                'Accept': 'application/vnd.github+json',
+                Accept: 'application/vnd.github+json',
                 'X-GitHub-Api-Version': '2022-11-28',
-                'Authorization': `Bearer ${githubToken}`,
+                Authorization: `Bearer ${githubToken}`,
             },
             enableCurlLogging: true, // Enable curl command logging
         })
@@ -63,7 +62,7 @@ class GithubApi {
 
         console.log(`\n📡 GitHub API Request: ${endpoint}`)
         console.log(`   Status: ${response.status} ${response.statusText}`)
-        
+
         if (logLevel === ApiLogLevel.DETAILED) {
             console.log(`   Response:`, JSON.stringify(response.data, null, 2))
         }
@@ -75,9 +74,9 @@ class GithubApi {
     ): Promise<ApiResponse<WorkflowsResponse>> {
         const endpoint = `/repos/${repoPath}/actions/workflows`
         const response = await this.client.get<WorkflowsResponse>(endpoint)
-        
+
         this.logResponse(response, logLevel, endpoint)
-        
+
         return response
     }
 
@@ -88,9 +87,9 @@ class GithubApi {
     ): Promise<ApiResponse<WorkflowRunsResponse>> {
         const endpoint = `/repos/${repoPath}/actions/workflows/${workflowId}/runs?per_page=100`
         const response = await this.client.get<WorkflowRunsResponse>(endpoint)
-        
+
         this.logResponse(response, logLevel, endpoint)
-        
+
         return response
     }
 
@@ -103,9 +102,9 @@ class GithubApi {
         const response = await this.client.get<IssuesResponse>(endpoint, {
             params: parameters,
         })
-        
+
         this.logResponse(response, logLevel, endpoint)
-        
+
         return response
     }
 }
