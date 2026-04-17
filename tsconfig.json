@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "nodenext",
+        "module": "NodeNext",
+        "target": "es2022",
+        "lib": [
+            "es2022",
+            "dom"
+        ],
+        "types": [
+            "node",
+            "@wdio/globals/types",
+            "@wdio/mocha-framework",
+            "expect-webdriverio",
+            "@wdio/appium-service",
+            "@wdio/sauce-service",
+            "mocha"
+        ],
+        "skipLibCheck": true,
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/config/wdio.conf.ts"
+    ]
+}
