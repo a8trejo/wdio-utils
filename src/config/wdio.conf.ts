@@ -3,8 +3,8 @@
 import dotenv from 'dotenv'
 dotenv.config({ path: ['.env.local', '.env'] })
 import logger from '../helpers/lib/logger.js'
+import fs from 'fs-extra'
 
-const fs = require('fs-extra')
 const apiLogLvl = process.env.API_LOG_LEVEL || 'info'
 const cliLogLvl = process.env.CLI_LOG_LVL || 'error'
 
@@ -226,8 +226,8 @@ export default {
 
         // Initialize chai after browser is ready
         try {
-            // Import chai using require
-            const chai = require('chai')
+            // Import chai dynamically
+            const chai = await import('chai')
 
             // Make chai globally available
             globalThis.chai = chai

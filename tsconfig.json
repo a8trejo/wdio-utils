@@ -28,6 +28,8 @@
     },
     "include": [
         "src/**/*.ts",
-        "src/config/wdio.conf.ts"
+        "src/**/*.d.ts",
+        "src/config/wdio.conf.ts",
+        "src/commands/mobile.commands.d.ts"
     ]
 }
