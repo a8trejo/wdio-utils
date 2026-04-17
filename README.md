@@ -1,3 +1,7 @@
+# WebdriverIO Utils
+
+A WebdriverIO testing framework with custom mobile commands and utilities.
+
 ## Configuration Structure
 This project uses a modular configuration structure with environment-based settings using `dotenv` and `deepmerge`.
 
@@ -45,3 +49,21 @@ Or pass it inline:
 TEST_SPECS="example.spec.ts" npm run wdio
 ```
 
+## Custom Mobile Commands
+
+This project includes custom WebdriverIO commands for mobile testing that extend the `browser` object with mobile-specific functionality. These provide a cleaner alternative to static methods in Page Object Models.
+
+### Available Commands
+
+- **`browser.scroll2Element()`** - Scrolls until an element is visible (iOS & Android)
+- **`browser.mobileTap()`** - Performs mobile-specific tap gestures
+- **`browser.performTap()`** - Taps at specific coordinates using W3C Actions
+
+### Quick Example
+
+```typescript
+// Scroll to an element and tap it
+const submitButton = await $('~submitButton')
+await browser.scroll2Element(submitButton, 'accessibility id', 'submitButton')
+await browser.mobileTap(submitButton)
+```

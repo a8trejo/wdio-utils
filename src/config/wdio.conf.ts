@@ -223,6 +223,9 @@ export default {
      * @param {object}         browser      instance of created browser/device session
      */
     before: async function (capabilities: any, specs: any) {
+        // Import custom mobile commands
+        await import('../commands/mobile.commands.js')
+        
         // Initialize chai after browser is ready
         try {
             // Import chai using require
